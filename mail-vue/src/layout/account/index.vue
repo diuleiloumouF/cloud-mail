@@ -291,7 +291,19 @@ function changeAccount(account) {
   accountStore.currentAccount = account
 }
 
+// 在 script setup 部分添加生成随机邮箱的函数
+function generateRandomEmail() {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 12; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
 function add() {
+  // 生成随机邮箱地址
+  addForm.email = generateRandomEmail();
   showAdd.value = true
   setTimeout(() => {
     addRef.value.focus()
