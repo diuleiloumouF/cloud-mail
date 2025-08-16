@@ -293,9 +293,9 @@ function changeAccount(account) {
 
 // 在 script setup 部分添加生成随机邮箱的函数
 function generateRandomEmail() {
-  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  const chars = 'abcdefghijklmnpqrstuvwxyz0123456789';
   let result = '';
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 8; i++) {
     result += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return result;
@@ -406,7 +406,8 @@ function submit() {
     addLoading.value = false
     showAdd.value = false
     addForm.email = ''
-    accounts.push(account)
+    accounts.unshift(account)  // 将新邮箱添加到数组开头
+    changeAccount(account)     // 自动选中新添加的邮箱
     verifyToken = ''
     settingStore.settings.addVerifyOpen = account.addVerifyOpen
     ElMessage({

@@ -64,6 +64,11 @@
           <Icon icon="eos-icons:system-ok-outlined" width="18" height="18" style="margin-left: 2px" />
           <span class="menu-name" style="margin-left: 22px">{{$t('SystemSettings')}}</span>
         </el-menu-item>
+        <el-menu-item @click="router.push({name: 'batch-account'})" index="batch-account" v-perm="'user:query'"
+                      :class="route.meta.name === 'batch-account' ? 'choose-item' : ''">
+          <Icon icon="material-symbols:group-add" width="20" height="20" />
+          <span class="menu-name" style="margin-left: 21px">{{$t('batchAddAccount')}}</span>
+        </el-menu-item>
       </el-menu>
     </div>
   </el-scrollbar>

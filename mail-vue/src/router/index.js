@@ -49,6 +49,16 @@ const routes = [
                     menu: true
                 }
             },
+            {
+                path: '/batch-account',
+                name: 'batch-account',
+                component: () => import('@/views/batch-account/index.vue'),
+                meta: {
+                    title: 'batchAddAccount',
+                    name: 'batch-account',
+                    menu: true
+                }
+            },
         ]
 
     },
